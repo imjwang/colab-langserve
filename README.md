@@ -8,4 +8,8 @@ Make sure GPU is selected.
 CMAKE_ARGS="-DLLAMA_CUBLAS=on" pip install -r requirements.txt
 ```
 
+```shell
+python main.py
+```
+
 Save the url from logger

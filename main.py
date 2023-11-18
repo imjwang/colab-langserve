@@ -8,7 +8,6 @@ import nest_asyncio
 from pydantic import BaseModel
 from langchain.llms import LlamaCpp
 import logging
-from typing import String
 from langserve import add_routes
 from langchain_experimental.chat_models import Llama2Chat
 from langchain.llms import LlamaCpp
