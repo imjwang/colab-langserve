@@ -14,6 +14,7 @@ from langchain.llms import LlamaCpp
 
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 app = FastAPI()
 
 origins = ["*"]
@@ -34,19 +35,11 @@ llama = LlamaCpp(model_path=path, n_gpu_layers=40, n_batch=512, streaming=True)
 
 
 add_routes(app, Llama2Chat(llm=llama), path="/chat")
-# class ChatRequest(BaseModel):
-#     prompt: String
-
-# @app.post('/chat')
-# def chat(req: ChatRequest):
-#     logger.info(req)
-#     llama()
-#     return llama.chat(req.text, req.context)
 
 
 def main():
     ngrok_tunnel = ngrok.connect(8000)
-    logger.log('Public URL:', ngrok_tunnel.public_url)
+    logger.info('Public URL:', ngrok_tunnel.public_url)
     nest_asyncio.apply()
     uvicorn.run(app, port=8000)
 
