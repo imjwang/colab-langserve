@@ -29,11 +29,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-repo = "TheBloke/Llama-2-7B-GGUF"
-model = "llama-2-7b.Q6_K.gguf"
+repo = "TheBloke/Llama-2-13B-chat-GGUF"
+model = "llama-2-13b-chat.Q6_K.gguf"
 
 path = hf_hub_download(repo_id=repo, filename=model)
-llama = LlamaCpp(model_path=path, n_gpu_layers=40, n_batch=512, streaming=True)
+llama = LlamaCpp(model_path=path, n_gpu_layers=40, n_batch=512)
 
 
 add_routes(app, Llama2Chat(llm=llama), path="/chat")
