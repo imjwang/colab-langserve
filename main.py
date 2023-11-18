@@ -33,10 +33,12 @@ repo = "TheBloke/Llama-2-13B-chat-GGUF"
 model = "llama-2-13b-chat.Q6_K.gguf"
 
 path = hf_hub_download(repo_id=repo, filename=model)
-llama = LlamaCpp(model_path=path, n_gpu_layers=43, n_batch=512, stream=False)
+llama = LlamaCpp(model_path=path, n_gpu_layers=43, n_batch=512)
 
 
 add_routes(app, Llama2Chat(llm=llama), path="/chat")
+
+add_routes(app, llama, path="/plain")
 
 
 def main():
