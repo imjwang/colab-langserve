@@ -46,7 +46,7 @@ add_routes(app, Llama2Chat(llm=llama), path="/chat")
 
 def main():
     ngrok_tunnel = ngrok.connect(8000)
-    logger.info('Public URL:', ngrok_tunnel.public_url)
+    logger.log('Public URL:', ngrok_tunnel.public_url)
     nest_asyncio.apply()
     uvicorn.run(app, port=8000)
 
