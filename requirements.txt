@@ -8,3 +8,4 @@ fastapi==0.104.1
 uvicorn==0.24.0.post1
 pydantic==1.10.13
 nest-asyncio==1.5.8
+# langchain-experimental==0.0.41 // This version doesn't seem to work with llama2chat yet, need manual installation
