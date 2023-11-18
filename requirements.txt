@@ -1,0 +1,10 @@
+huggingface-hub==0.19.3
+llama_cpp_python==0.2.18
+langchain==0.0.337
+langserve==0.0.29
+langsmith==0.0.65
+pyngrok==7.0.1
+fastapi==0.104.1
+uvicorn==0.24.0.post1
+pydantic==1.10.13
+nest-asyncio==1.5.8
