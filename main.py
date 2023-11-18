@@ -11,7 +11,6 @@ import logging
 from langserve import add_routes
 from langchain_experimental.chat_models import Llama2Chat
 from langchain.llms import LlamaCpp
-from langchain.llms import HuggingFaceHub
 
 
 logging.basicConfig(level=logging.INFO,
@@ -33,17 +32,15 @@ app.add_middleware(
 repo = "TheBloke/Llama-2-7B-Chat-GGUF"
 model = "llama-2-7b-chat.Q2_K.gguf"
 
-
 path = hf_hub_download(repo_id=repo, filename=model)
-llama = LlamaCpp(model_path=path, n_gpu_layers=43, n_batch=512, stream=False)
+# llama = LlamaCpp(model_path=path, n_gpu_layers=43, n_batch=512, stream=False)
 
 
-add_routes(app, Llama2Chat(llm=llama), path="/chat")
-add_routes(app, HuggingFaceHub(
-    repo_id="TheBloke/Llama-2-7B-Chat-GGUF", model_kwargs={"temperature": 0.5, "max_length": 64}
-), path="/test")
+add_routes(app, Llama2Chat(llm=LlamaCpp(model_path=path,
+           n_gpu_layers=43, n_batch=512, stream=False)), path="/chat")
 
-add_routes(app, llama, path="/plain")
+add_routes(app, LlamaCpp(model_path=path, n_gpu_layers=43,
+           n_batch=512, stream=False), path="/plain")
 
 
 def main():
