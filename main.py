@@ -47,7 +47,7 @@ def main():
     ngrok_tunnel = ngrok.connect(8000)
     logger.info('Public URL: %s', ngrok_tunnel.public_url)
     nest_asyncio.apply()
-    uvicorn.run(app, port=8000)
+    uvicorn.run(app, port=8000, timeout_keep_alive=120)
 
 
 if __name__ == '__main__':
