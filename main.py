@@ -9,7 +9,6 @@ from pydantic import BaseModel
 from langchain.llms import LlamaCpp
 import logging
 from langserve import add_routes
-from langchain_experimental.chat_models import Llama2Chat
 from langchain.llms import LlamaCpp
 from langchain.chat_models import ChatOpenAI
 
@@ -35,10 +34,6 @@ model = "llama-2-7b-chat.Q2_K.gguf"
 
 path = hf_hub_download(repo_id=repo, filename=model)
 # llama = LlamaCpp(model_path=path, n_gpu_layers=43, n_batch=512, stream=False)
-
-
-add_routes(app, Llama2Chat(llm=LlamaCpp(model_path=path,
-           n_gpu_layers=43, n_batch=512, stream=False)), path="/chat_llama_temp")
 
 add_routes(app, LlamaCpp(model_path=path, n_gpu_layers=43,
            n_batch=512, stream=False), path="/plain")

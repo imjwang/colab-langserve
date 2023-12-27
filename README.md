@@ -21,3 +21,8 @@ python main.py
 ```
 
 Save the url from logger
+
+### Sources
+
+colab ngrok hosting https://ko-fi.com/yeyuh (https://colab.research.google.com/drive/16S5dJIiYSprRQQCSccW7o1Slqw-NOifl?usp=sharing\#scrollTo=S1t4hv0_AZL_)
+Do public READMEs need citing?
