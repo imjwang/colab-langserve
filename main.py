@@ -30,7 +30,7 @@ app.add_middleware(
 )
 
 repo = "TheBloke/Dr_Samantha-7B-GGUF"
-model = ""dr_samantha-7b.Q6_K.gguf"
+model = "dr_samantha-7b.Q6_K.gguf"
 
 path = hf_hub_download(repo_id=repo, filename=model)
 # llama = LlamaCpp(model_path=path, n_gpu_layers=43, n_batch=512, stream=False)
