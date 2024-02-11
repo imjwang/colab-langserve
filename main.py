@@ -36,9 +36,7 @@ path = hf_hub_download(repo_id=repo, filename=model)
 # llama = LlamaCpp(model_path=path, n_gpu_layers=43, n_batch=512, stream=False)
 
 add_routes(app, LlamaCpp(model_path=path, n_gpu_layers=43,
-           n_batch=512, stream=False), path="/plain")
-
-add_routes(app, ChatOpenAI(), path="/chat")
+           n_batch=512, stream=False), path="/chat")
 
 add_routes
 
